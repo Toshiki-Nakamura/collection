@@ -11,8 +11,8 @@ int		main()
 
 	// H * W
 	vector<vector<int> > a(H, vector<int>(W));
-	vector<int> tate(W+1, 0);
-	vector<int> yoko(H+1, 0);
+	vector<int> col(W+1, 0);
+	vector<int> row(H+1, 0);
 	for (int i = 0; i < H; i++)
 	{
 		int y_sum = 0;
@@ -21,7 +21,7 @@ int		main()
 			cin >> a[i][j];
 			y_sum += a[i][j];
 		}
-		yoko[i] = y_sum;
+		row[i] = y_sum;
 	}
 
 	for (int i = 0; i < W; i++)
@@ -31,14 +31,14 @@ int		main()
 		{
 			y_sum += a[j][i];
 		}
-		tate[i] += y_sum;
+		col[i] += y_sum;
 	}
 
 	for (int i = 0; i < H; i++)
 	{
 		for (int j = 0; j < W; j++)
 		{
-			cout << (yoko[i] + tate[j]) - a[i][j] << " ";
+			cout << (row[i] + col[j]) - a[i][j] << " ";
 		}
 		cout << endl;
 	}
