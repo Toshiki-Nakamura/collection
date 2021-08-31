@@ -1,3 +1,3 @@
-## collection
+## code-collection
 
-過去のアウトプットから切り抜いたコード集
+A collection of code clipped from past implementations.
