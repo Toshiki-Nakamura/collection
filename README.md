@@ -1,3 +1,3 @@
 ## code-collection
 
-過去の実装から切り抜いたコード集
+A collection of code clipped from past implementations.
