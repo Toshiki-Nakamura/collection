@@ -35,15 +35,3 @@ vector<string > split(string str, string sep)
 	return vec;
 }
 
-int  main()
-{
-	string s, sep;
-	cin >> s >> sep;
-	vector<string> ret;
-	ret = split(s, sep);
-
-	for (int i = 0; i < ret.size(); i++)
-		cout << ret[i] << "\n";
-	// cout << endl;
-	return (0);
-}
