@@ -26,12 +26,24 @@ vector<string > split(string str, string sep)
 	{
 		pos = str.find(sep);
 		string s = str.substr(0, pos); //str[0]~str[pos-1]
-		if (s != "") vec.push_back(s);
+		if (!s.empty()) vec.push_back(s);
 		i = pos + seplen;
 		str = str.substr(i, str.size() - i); // str[i]~str[len-1]
 	}
-	if (str.size())
+	if (!str.empty())
 		vec.push_back(str);
 	return vec;
 }
 
+/* 
+int		main()
+{
+	string str, sep;
+	vector<string> vec;
+	cin >> str >> sep;
+	vec = split(str, sep);
+	for (auto x : vec)
+		cout << "|" << x << "|" << endl;
+	return 0;
+}
+*/
