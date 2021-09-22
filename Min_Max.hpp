@@ -1,3 +1,6 @@
+#ifndef MIN_MAX_HPP
+# define MIN_MAX_HPP
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -10,18 +13,4 @@ pair<T, T> min_max(vector<T> vec)
 	return make_pair<T, T>(*minmax.first, *minmax.second);
 }
 
-
-/*
-int		main()
-{
-	int N; cin >> N;
-	vector<int> v(N);
-	for (int i=0; i < N; i++)
-		cin >> v[i];
-
-	pair<int, int> p = min_max(v);
-	cout << p.first << " " << p.second << endl;
-
-	return 0;
-}
-*/
+#endif
