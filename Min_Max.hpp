@@ -13,4 +13,32 @@ pair<T, T> min_max(vector<T> vec)
 	return make_pair<T, T>(*minmax.first, *minmax.second);
 }
 
+/*
+** first    : min-value
+** second   : count of min-value
+*/
+template <typename T>
+pair<T, T> min_set(vector<T> vec)
+{
+	pair<T, T> set;
+
+	set.first = *min_element(vec.begin(), vec.end());
+	set.second = std::count(vec.begin(), vec.end(), set.first);
+	return set;
+}
+
+/*
+** first    : max-value
+** second   : count of max-value
+*/
+template <typename T>
+pair<T, T> max_set(vector<T> vec)
+{
+	pair<T, T> set;
+
+	set.first = *max_element(vec.begin(), vec.end());
+	set.second = std::count(vec.begin(), vec.end(), set.first);
+	return set;
+}
+
 #endif
