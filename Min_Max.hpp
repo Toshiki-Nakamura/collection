@@ -1,7 +1,10 @@
 #ifndef MIN_MAX_HPP
 # define MIN_MAX_HPP
 
-#include <bits/stdc++.h>
+#include <vector>
+#include <iostream>
+#include <utility>
+
 using namespace std;
 
 template <typename T>
