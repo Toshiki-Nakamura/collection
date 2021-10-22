@@ -1,4 +1,3 @@
-// #include <bits/stdc++.h>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -14,7 +13,7 @@ bool contain(const std::basic_string<T>& s, const U& v)
 vector<string > split(string str, string sep)
 {
 	vector<string > vec;
-	size_t seplen = sep.length();
+	const size_t seplen = sep.length();
 	size_t pos = 0, i = 0;
 
 	if (contain(str, sep) == false)
