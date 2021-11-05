@@ -56,6 +56,20 @@ public:
 		decrease_hour(h);
 		shift();
 	};
+	void	increase_sec(int n) {
+		this->sec += n;
+		shift();
+	};
+	void	decrease_sec(int s) {
+		int m = 0;
+		if (s >= 60) {
+			m = s / 60;
+			s = s % 60;
+		}
+		this->sec -= s;
+		decrease_min(m);
+		shift();
+	};
 
 	void	increase_hour(int n) {this->hour += n;};
 	void	decrease_hour(int n) {this->hour -= n;};
