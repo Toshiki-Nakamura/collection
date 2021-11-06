@@ -93,6 +93,9 @@ public:
 		std::string ans(s);
 		return ans;
 	};
+
+	friend bool	operator==(const Clock &lhs, const Clock &rhs);
+	friend bool	operator<(const Clock &lhs, const Clock &rhs);
 };
 
 std::ostream& operator<<(std::ostream& stream, const Clock& c) {
@@ -101,6 +104,36 @@ std::ostream& operator<<(std::ostream& stream, const Clock& c) {
 	std::string ret(s);
 	stream << ret;
 	return stream;
+};
+
+bool	operator==(const Clock &lhs, const Clock &rhs) {
+	return (lhs.hour == rhs.hour && lhs.min == rhs.min && lhs.sec == rhs.sec);
+};
+
+bool	operator<(const Clock &lhs, const Clock &rhs) {
+	if (lhs.hour < rhs.hour)
+		return true;
+	else if (lhs.hour > rhs.hour)
+		return false;
+	else if (lhs.min < rhs.min)
+		return true;
+	else if (lhs.min > rhs.min)
+		return false;
+	else
+		return (lhs.sec < rhs.sec);
+};
+
+bool	operator!=(const Clock &lhs, const Clock &rhs)  {
+	return !(lhs == rhs);
+};
+bool	operator>(const Clock &lhs, const Clock &rhs)  {
+	return (rhs < lhs);
+};
+bool	operator<=(const Clock &lhs, const Clock &rhs)  {
+	return !(lhs > rhs); 
+};
+bool	operator>=(const Clock &lhs, const Clock &rhs)  {
+	return !(lhs < rhs);
 };
 
 #endif
