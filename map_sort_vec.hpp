@@ -8,42 +8,47 @@
 
 using namespace std;
 
-class Comp_dec {
+class Comp_desc {
 public:
 	bool operator() (const pair<char, int>& a, const pair<char, int>& b) {
 		return a.second > b.second;
 	}
 };
 
+bool Comp_asc(const pair<char, int>& a, const pair<char, int>& b) {
+	return a.second < b.second;
+}
+
+/* https://cpprefjp.github.io/reference/type_traits/add_lvalue_reference.html */
 template<typename Key, typename Val, class Comp>
 vector<pair<Key, Val> >	map_sort(map<Key, Val> mp, Comp _comp)
 {
 	vector<pair<Key, Val> > vec;
+	typedef typename __comp_ref_type<Comp>::type _Comp_ref;
 	typename::map<Key, Val>::iterator itr = mp.begin();
 	for (; itr != mp.end(); itr++) {
 		vec.push_back(*itr);
 	}
-	std::sort(vec.begin(), vec.end(), Comp_dec());
+	// _Comp_ref => map_sort(mp, Comp_asc)でもmap_sort(mp, Comp_desc())でもsegvしない
+	std::sort(vec.begin(), vec.end(), _Comp_ref(_comp));
 	return vec;
 }
 
 /*
 int		main()
 {
-	size_t n; cin >> n;
 	map<char, int> mp;
-	for (size_t i = 0; i < n; i++)
-	{
-		char c; int a; 
-		cin >> c >> a;
-		mp[c] += a;
-	}
+	for (size_t i = 0; i < 5; i++)
+		mp['A' + i] = rand() % 99;
 	vector<std::pair<char, int> > vec;
-	vec = map_sort(mp, Comp_dec());
-	for (auto &x : vec) {
+	vec = map_sort(mp, Comp_desc());
+	for (auto &x : vec)
 		cout << x.first << " " << x.second << endl;
-	}
-	return (0);
+	cout << "========================\n";
+	vector<std::pair<char, int> > vec2;
+	vec2 = map_sort(mp, Comp_asc);
+	for (auto &x : vec)
+		cout << x.first << " " << x.second << endl;
 }
 */
 
