@@ -1,34 +1,28 @@
 #include <stdio.h>
 
-typedef	unsigned long	t_unsigned_long;
+int	i = 2;
+#define I ++i
 
-int		i = 0;
-int		t = 1;
-int		y = 3;
-
-#define	I	++i
-#define	Y	++i
-
-void	ft_put42()
+unsigned long	get42()
 {
-	int		f;
-	int		o;
-	int		u;
-	t_unsigned_long	r;
-			I;
-			I;
+	int           f;
+	int           o;
+	int           u;
+	unsigned long r;
+	              I;
+	              I;
 
-	t_unsigned_long	T;
-			I;
-	t_unsigned_long	W;
-	Y;
-	t_unsigned_long	O;
+	unsigned long T;
+	              I;
+	unsigned long W;
+	I;
+	unsigned long O;
 
-	f = 3, o = 5, u = 2, r = 7, T = 5, W = 7, O = 8;
-	printf("%lu\n", f + o + u + r + T + W + O + ++i);
+	f = 7, o = 7, u = 7, r = 7, T = 7, W = 7, O = 7-I;
+	return (f + o + u + r + T + W + O);
 }
 
 int		main()
 {
-	ft_put42();
+	printf("%lu", get42());
 }
