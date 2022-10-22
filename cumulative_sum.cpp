@@ -12,5 +12,10 @@ int main()
 		cin >> A[i];
 		total[i + 1] = total[i] + A[i];
 	}
+
+	for (auto x : total) {
+		cout << x << " ";
+	}
+	cout << endl;
 	return (0);
 }
